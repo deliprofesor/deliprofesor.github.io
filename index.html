@@ -11,30 +11,23 @@
     <nav class="sidebar">
       <h2>İlknur</h2>
       <ul>
-        <li onclick="showPanel('giris')">Giriş</li>
-        <li onclick="showPanel('tanitim')">Tanıtım</li>
-        <li onclick="showPanel('projeler')">Projeler</li>
-        <li onclick="showPanel('yayinlar')">Yayınlar</li>
-        <li onclick="showPanel('iletisim')">İletişim</li>
+        <li onclick="showPanel('giris', this)">Giriş</li>
+        <li onclick="showPanel('tanitim', this)">Tanıtım</li>
+        <li onclick="showPanel('projeler', this)">Projeler</li>
+        <li onclick="showPanel('yayinlar', this)">Yayınlar</li>
+        <li onclick="showPanel('iletisim', this)">İletişim</li>
       </ul>
     </nav>
     <main class="content">
-        <section id="giris" style="text-align:center; padding: 80px 20px;">
-          <h1 style="font-size: 3.5rem; font-weight: 700; margin-bottom: 10px; color: #2c3e50;">
-            İlknur Yılmaz
-          </h1>
-          <h2 style="font-size: 2rem; font-weight: 500; color: #1abc9c; margin-bottom: 15px;">
-            Veri Bilimci & Veri Analisti
-          </h2>
-          <p style="font-size: 1.2rem; color: #34495e; max-width: 600px; margin: auto;">
-            Python, R ve Julia kullanarak veri analizi, makine öğrenmesi ve görselleştirme projeleri geliştiriyorum.
-          </p>
-        </section>
-
+      <section id="giris" class="panel aktif">
+        <h1>İlknur Yılmaz</h1>
+        <h2>Veri Bilimci & Veri Analisti</h2>
+        <p>Python, R ve Julia kullanarak veri analizi, makine öğrenmesi ve görselleştirme projeleri geliştiriyorum.</p>
+      </section>
 
       <section id="tanitim" class="panel">
         <h1>Tanıtım</h1>
-        <img src="images/profil.jpg" alt="İlknur Yılmaz" class="profil">
+        <img src="images/profil.jpg" alt="İlknur Yılmaz" class="profile-pic">
         <p>Merhaba, ben İlknur Yılmaz. KTÜ Elektronik ve Haberleşme Mühendisliği son sınıf öğrencisiyim. AR/VR, veri analizi, insansız hava araçları ve simülasyon teknolojileri üzerine projeler geliştiriyorum.</p>
       </section>
 
@@ -49,8 +42,8 @@
 
       <section id="yayinlar" class="panel">
         <h1>Yayınlarım</h1>
-        <p> “Swarm UAV’larla Sanal Arama Kurtarma Operasyonu” – Bitirme Tezi, 2024</p>
-        <p> Yakında eklenecek diğer yayınlar...</p>
+        <p>“Swarm UAV’larla Sanal Arama Kurtarma Operasyonu” – Bitirme Tezi, 2024</p>
+        <p>Yakında eklenecek diğer yayınlar...</p>
       </section>
 
       <section id="iletisim" class="panel">
@@ -63,9 +56,23 @@
   </div>
 
   <script>
-    function showPanel(panelId) {
-      document.querySelectorAll('.panel').forEach(p => p.classList.remove('aktif'));
-      document.getElementById(panelId).classList.add('aktif');
+    function showPanel(panelId, element) {
+      // Aktif menüyü güncelle
+      document.querySelectorAll('.sidebar ul li').forEach(li => li.classList.remove('active'));
+      element.classList.add('active');
+
+      const panels = document.querySelectorAll('.panel');
+      panels.forEach(panel => {
+        if(panel.id === panelId) {
+          panel.classList.add('aktif', 'slide-in');
+          panel.classList.remove('slide-out');
+        } else if(panel.classList.contains('aktif')) {
+          panel.classList.remove('aktif', 'slide-in');
+          panel.classList.add('slide-out');
+        } else {
+          panel.classList.remove('slide-in', 'slide-out');
+        }
+      });
     }
   </script>
 </body>
