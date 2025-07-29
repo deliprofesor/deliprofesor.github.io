@@ -1,8 +1,11 @@
+/* Genel Ayarlar */
 body {
   margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background-color: #e6f5e6;
-  color: #333;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f9f6f0; /* Kırık beyaz / ekru */
+  color: #0d1a26; /* Koyu mavi ton */
+  height: 100vh;
+  overflow: hidden;
 }
 
 .container {
@@ -10,51 +13,189 @@ body {
   height: 100vh;
 }
 
+/* Sol Menü */
 .sidebar {
   width: 220px;
-  background-color: #b2d8b2;
+  background-color: #001f3f; /* Lacivert koyu mavi */
+  color: #f0f0f0;
   padding: 20px;
-  box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  user-select: none;
 }
 
 .sidebar h2 {
   margin-top: 0;
-  color: #2f4f2f;
+  margin-bottom: 30px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  text-align: center;
+  font-size: 1.8rem;
+  color: #a9bcd0;
+  border-bottom: 2px solid #2b4a7d;
+  padding-bottom: 10px;
 }
 
 .sidebar ul {
   list-style: none;
-  padding: 0;
+  padding-left: 0;
+  flex-grow: 1;
 }
 
 .sidebar li {
-  margin: 10px 0;
+  margin: 15px 0;
   cursor: pointer;
-  padding: 8px;
-  border-radius: 6px;
-  transition: background 0.3s;
+  padding: 10px 15px;
+  border-radius: 8px;
+  transition: background-color 0.3s, color 0.3s;
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: #cbd3e1;
 }
 
-.sidebar li:hover {
-  background-color: #90c290;
+.sidebar li:hover,
+.sidebar li.active {
+  background-color: #2b4a7d;
+  color: #f9f6f0;
 }
 
+/* Sağ içerik alanı */
 .content {
-  flex: 1;
+  flex-grow: 1;
   padding: 40px;
   overflow-y: auto;
+  position: relative;
+  background-color: #f9f6f0; /* Kırık beyaz */
 }
 
+/* Paneller başlangıçta gizli */
 .panel {
   display: none;
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  padding: 0 40px 40px 40px;
+  background-color: #f9f6f0;
+  box-sizing: border-box;
+  overflow-y: auto;
+  color: #0d1a26;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.05);
 }
 
+/* Aktif panel görünür */
 .panel.aktif {
   display: block;
 }
 
-.profil {
+/* Profil resmi */
+.profile-pic {
   width: 150px;
-  border-radius: 50%;
+  border-radius: 12px;
   margin-bottom: 20px;
+  box-shadow: 0 0 15px rgba(43, 74, 125, 0.5);
 }
+
+/* Başlıklar */
+h1, h2 {
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #0d1a26;
+}
+
+h1 {
+  font-size: 2.8rem;
+  border-bottom: 3px solid #2b4a7d;
+  padding-bottom: 10px;
+}
+
+h2 {
+  font-size: 1.8rem;
+  border-bottom: 2px solid #2b4a7d;
+  padding-bottom: 6px;
+  margin-top: 40px;
+}
+
+/* Paragraflar */
+p {
+  line-height: 1.6;
+  font-size: 1.1rem;
+  color: #33475b;
+}
+
+/* Listeler */
+ul {
+  list-style-type: disc;
+  padding-left: 20px;
+  margin-top: 10px;
+}
+
+ul li {
+  margin-bottom: 10px;
+  font-size: 1.05rem;
+  color: #2e3c50;
+}
+
+/* Linkler */
+a {
+  color: #1a3b7a;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s;
+}
+
+a:hover {
+  color: #0d1a26;
+  text-decoration: underline;
+}
+
+/* Slide Animasyonları */
+@keyframes slideInFromLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideOutToLeft {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+}
+
+.slide-in {
+  animation: slideInFromLeft 0.4s forwards;
+}
+
+.slide-out {
+  animation: slideOutToLeft 0.4s forwards;
+}
+
+/* Responsive (Mobil için) */
+@media (max-width: 768px) {
+  body, .container {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    padding: 10px 20px;
+    box-shadow: none;
+  }
+
+  .sidebar h2 {
+    display: none;
+  }
+
+  .sidebar ul {
