@@ -2,151 +2,63 @@
 <html lang="tr">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>İlknur Yılmaz | Veri Bilimci</title>
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      display: flex;
-      font-family: 'Segoe UI', sans-serif;
-      min-height: 100vh;
-      background-color: #edf7ed; /* pastel yeşil */
-    }
-
-    nav {
-      width: 250px;
-      background-color: #2c3e50;
-      color: white;
-      padding: 30px 20px;
-      position: fixed;
-      height: 100vh;
-    }
-
-    nav h1 {
-      font-size: 20px;
-      margin-bottom: 20px;
-      border-bottom: 1px solid #444;
-      padding-bottom: 10px;
-    }
-
-    nav a {
-      display: block;
-      margin: 15px 0;
-      color: #ecf0f1;
-      text-decoration: none;
-      transition: 0.3s;
-    }
-
-    nav a:hover {
-      color: #1abc9c;
-    }
-
-    .main {
-      margin-left: 270px;
-      padding: 40px;
-      flex: 1;
-    }
-
-    section {
-      margin-bottom: 60px;
-    }
-
-    section h2 {
-      margin-bottom: 15px;
-      color: #2c3e50;
-      border-bottom: 2px solid #1abc9c;
-      padding-bottom: 5px;
-    }
-
-    .profile-pic {
-      width: 150px;
-      border-radius: 10px;
-      margin-bottom: 15px;
-    }
-
-    ul {
-      list-style: disc;
-      margin-left: 20px;
-    }
-
-    a {
-      color: #2980b9;
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
-    @media (max-width: 768px) {
-      nav {
-        position: relative;
-        width: 100%;
-        height: auto;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-        padding: 10px;
-      }
-
-      .main {
-        margin-left: 0;
-        padding: 20px;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
-  <nav>
-    <h1>İlknur Yılmaz</h1>
-    <a href="#giris">🏠 Giriş</a>
-    <a href="#tanitim">👩‍💻 Tanıtım</a>
-    <a href="#projeler">📁 Projeler</a>
-    <a href="#yayinlar">📚 Yayınlar</a>
-    <a href="#iletisim">📬 İletişim</a>
-  </nav>
-
-  <div class="main">
-    <section id="giris">
-      <h2>🏠 Giriş</h2>
-      <p>Merhaba! Ben İlknur Yılmaz. Bu kişisel sitemde veri bilimi, analiz ve teknolojiye dair çalışmalarımı paylaşıyorum.</p>
-    </section>
-
-    <section id="tanitim">
-      <h2>👩‍💻 Tanıtım</h2>
-      <img src="resminizin-url'si" alt="Profil Fotoğrafı" class="profile-pic">
-      <p>Elektronik ve Haberleşme Mühendisliği son sınıf öğrencisiyim. Unity, AR/VR, veri analizi ve simülasyon teknolojileriyle ilgileniyorum. Python, R, Julia dillerinde projeler geliştiriyorum. AR/VR eğitim projeleri ve savunma sanayi odaklı sistemler üzerine çalıştım.</p>
-      <p><strong>Üniversite:</strong> Karadeniz Teknik Üniversitesi (KTÜ)</p>
-    </section>
-
-    <section id="projeler">
-      <h2>📁 Projeler</h2>
+  <div class="container">
+    <nav class="sidebar">
+      <h2>İlknur</h2>
       <ul>
-        <li><a href="https://github.com/deliprofesor/eeg-eye-state">EEG Eye State Sınıflandırma (R)</a></li>
-        <li><a href="https://github.com/deliprofesor/unity-vr-heart">Unity VR ile Kalp Yapısı</a></li>
-        <li><a href="https://github.com/deliprofesor/covid-tracker">COVID-19 Tahminleme (Python)</a></li>
+        <li onclick="showPanel('giris')">Giriş</li>
+        <li onclick="showPanel('tanitim')">Tanıtım</li>
+        <li onclick="showPanel('projeler')">Projeler</li>
+        <li onclick="showPanel('yayinlar')">Yayınlar</li>
+        <li onclick="showPanel('iletisim')">İletişim</li>
       </ul>
-    </section>
+    </nav>
+    <main class="content">
+      <section id="giris" class="panel aktif">
+        <h1>Hoş Geldiniz</h1>
+        <p>Veri Bilimi ve Simülasyon Teknolojilerine tutkulu bir mühendisin sayfasına hoş geldiniz.</p>
+      </section>
 
-    <section id="yayinlar">
-      <h2>📚 Yayınlar</h2>
-      <ul>
-        <li>“Sanal Ortamda Sürü İHA ile Arama Kurtarma Operasyonu” - Lisans Bitirme Projesi, 2024</li>
-        <li>Veri Bilimi Günlükleri (yakında blog olarak eklenecek)</li>
-      </ul>
-    </section>
+      <section id="tanitim" class="panel">
+        <h1>Tanıtım</h1>
+        <img src="images/profil.jpg" alt="İlknur Yılmaz" class="profil">
+        <p>Merhaba, ben İlknur Yılmaz. KTÜ Elektronik ve Haberleşme Mühendisliği son sınıf öğrencisiyim. AR/VR, veri analizi, insansız hava araçları ve simülasyon teknolojileri üzerine projeler geliştiriyorum.</p>
+      </section>
 
-    <section id="iletisim">
-      <h2>📬 İletişim</h2>
-      <p>
-        <strong>GitHub:</strong> <a href="https://github.com/deliprofesor" target="_blank">github.com/deliprofesor</a><br>
-        <strong>E-posta:</strong> <a href="mailto:ilknurylmz.1707@gmail.com">ilknurylmz.1707@gmail.com</a><br>
-        <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/ilknurylmz/" target="_blank">linkedin.com/in/ilknurylmz/</a><br>
-        <strong>YouTube:</strong> <a href="https://www.youtube.com/@ilknur" target="_blank">@ilknur</a>
-      </p>
-    </section>
+      <section id="projeler" class="panel">
+        <h1>Projelerim</h1>
+        <ul>
+          <li><strong>VR Eğitim Simülasyonu:</strong> Unity ve C# ile geliştirildi.</li>
+          <li><strong>Uçan Güvenlik Dronu:</strong> STM32 ve Altium ile tasarım.</li>
+          <li><strong>PDF İşleyici Uygulama:</strong> Python ile veri dönüştürme.</li>
+        </ul>
+      </section>
+
+      <section id="yayinlar" class="panel">
+        <h1>Yayınlarım</h1>
+        <p> “Swarm UAV’larla Sanal Arama Kurtarma Operasyonu” – Bitirme Tezi, 2024</p>
+        <p> Yakında eklenecek diğer yayınlar...</p>
+      </section>
+
+      <section id="iletisim" class="panel">
+        <h1>İletişim</h1>
+        <p>Email: ilknurylmz.1707@gmail.com</p>
+        <p>GitHub: <a href="https://github.com/deliprofesor" target="_blank">github.com/deliprofesor</a></p>
+        <p>LinkedIn: <a href="https://linkedin.com/in/ilknurylmz" target="_blank">linkedin.com/in/ilknurylmz</a></p>
+      </section>
+    </main>
   </div>
 
+  <script>
+    function showPanel(panelId) {
+      document.querySelectorAll('.panel').forEach(p => p.classList.remove('aktif'));
+      document.getElementById(panelId).classList.add('aktif');
+    }
+  </script>
 </body>
 </html>
