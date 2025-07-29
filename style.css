@@ -84,7 +84,6 @@ body {
 .panel.aktif {
   display: block;
 }
-
 /* Başlıklar */
 h1, h2 {
   font-weight: 700;
@@ -111,8 +110,7 @@ p {
   font-size: 1.1rem;
   color: #33475b;
 }
-
-/* Projeler Bölümü */
+/* Projeler Grid */
 .projects-grid {
   display: flex;
   flex-direction: column;
@@ -120,20 +118,30 @@ p {
   margin-top: 30px;
 }
 
-.project-card {
-  background-color: #232375;
+/* Proje Linki (Tıklanabilir) */
+.project-link {
+  text-decoration: none;
+  display: block;
   border-radius: 12px;
-  padding: 20px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  color: white;
+  overflow: hidden;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-.project-card:hover {
-  box-shadow: 0 8px 20px rgba(0,0,0,0.18);
-  transform: translateY(-5px);
+/* Kart Stil */
+.project-card {
+  background-color: #232375;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  color: white;
+  height: 100%;
 }
 
+.project-link:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.18);
+}
+
+/* Kart Başlık ve Açıklama */
 .project-card h3 {
   margin-top: 0;
   margin-bottom: 12px;
@@ -148,8 +156,6 @@ p {
   line-height: 1.5;
   color: #f0f0f0;
 }
-
-/* Responsive */
 @media (max-width: 768px) {
   body, .container {
     flex-direction: column;
