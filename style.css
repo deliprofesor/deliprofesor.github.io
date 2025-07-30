@@ -87,6 +87,44 @@ body {
 .panel.aktif {
   display: block;
 }
+/* Tanıtım kısmı iki sütunlu düzen */
+.tanitim-container {
+  display: flex;
+  align-items: flex-start;
+  gap: 40px;
+  padding: 40px;
+  flex-wrap: wrap;
+}
+
+.profile-left {
+  flex: 1;
+  min-width: 200px;
+  max-width: 300px;
+}
+
+.profile-right {
+  flex: 2;
+  min-width: 280px;
+}
+
+.profile-pic {
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+#tanitim h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+#tanitim p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 15px;
+  color: #444;
+}
 
 /* Başlıklar */
 h1, h2 {
