@@ -87,6 +87,15 @@ body {
 .panel.aktif {
   display: block;
 }
+#giris {
+  width: 100%;
+  height: 100vh; /* Tam ekran yüksekliği */
+  background-image: url('images/giriş.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
 /* Tanıtım kısmı iki sütunlu düzen */
 .tanitim-container {
   display: flex;
