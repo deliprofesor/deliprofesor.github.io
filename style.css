@@ -219,3 +219,38 @@ p {
 }
 
 .proje
+.tanitim-container {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  padding: 20px;
+  flex-wrap: wrap; /* mobil uyum için */
+}
+
+.profile-left {
+  flex: 1;
+  max-width: 300px;
+}
+
+.profile-pic {
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.profile-right {
+  flex: 2;
+  min-width: 300px;
+}
+
+.profile-right h1 {
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+
+.profile-right p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #333;
+}
